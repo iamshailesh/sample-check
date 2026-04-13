@@ -2,7 +2,7 @@ name: Auto Email Test
 
 on:
   schedule:
-  - cron: "30 12 13 4 *"   # 13 April 2026 6:00 PM IST
+    - cron: "*/5 * * * *"   # every 5 minutes
   workflow_dispatch:
 
 jobs:
@@ -13,12 +13,16 @@ jobs:
       - name: Send Email
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.gmail.com
+          server_address: smtp.zoho.com
           server_port: 587
-          username: ${{ secrets.EMAIL_USER }}
-          password: ${{ secrets.EMAIL_PASS }}
-          subject: "GitHub Auto Test"
-          body: "hi"
+
+          username: ${{ secrets.ZOHO_EMAIL }}
+          password: ${{ secrets.ZOHO_APP_PASSWORD }}
+
+          subject: "GitHub Auto Test - Every 5 Minutes"
+          body: "This is an automated test email sent every 5 minutes."
+
           to: ${{ secrets.TO_EMAIL }}
-          from: ${{ secrets.EMAIL_USER }}
+          from: ${{ secrets.ZOHO_EMAIL }}
+
           secure: false
