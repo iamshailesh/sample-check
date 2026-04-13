@@ -2,7 +2,7 @@ name: Auto Email Test
 
 on:
   schedule:
-    - cron: "25 12 13 4 *"   # 13 April 2026 5:55 PM IST
+  - cron: "30 12 13 4 *"   # 13 April 2026 6:00 PM IST
   workflow_dispatch:
 
 jobs:
