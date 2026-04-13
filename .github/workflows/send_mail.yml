@@ -1,0 +1,24 @@
+name: Auto Email Test
+
+on:
+  schedule:
+    - cron: "0 4 * * 1"   # Monday 9:30 AM IST
+  workflow_dispatch:
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send Email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.EMAIL_USER }}
+          password: ${{ secrets.EMAIL_PASS }}
+          subject: "GitHub Auto Test"
+          body: "hi"
+          to: ${{ secrets.TO_EMAIL }}
+          from: ${{ secrets.EMAIL_USER }}
+          secure: false
