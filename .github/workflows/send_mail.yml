@@ -1,4 +1,3 @@
-
 name: Auto Email Test
 on:
   schedule:
@@ -20,4 +19,3 @@ jobs:
           to: ${{ secrets.TO_EMAIL }}
           from: ${{ secrets.ZOHO_EMAIL }}
           secure: true
-```
